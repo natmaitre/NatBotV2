@@ -8,7 +8,6 @@ bot.on("ready", async () => {
  console.log(`${bot.user.username} is online`);
 
 bot.user.setActivity("Natmaitre sur youtube",{type:"WATCHING"})
-
  //bot.user.setGame("travaille sur atom!");
 });
 
