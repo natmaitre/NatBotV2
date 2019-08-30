@@ -1,23 +1,21 @@
 const botconfig = require("./botconfig.json");
 const tokenfile = require("/etc/nat/token.json");
 const Discord = require("discord.js");
-
-const bot = new Discord.Client({
-  disableEveryone: true
-});
+const fs = require('fs');
+const bot = new Discord.Client();
 
 bot.on('ready', () => {
   console.log(`Natbot vient de se connecter`);
- // let embed = new Discord.RichEmbed()
-  //  .setDescription("**__Démarage du Bot__**")
-  //  .setColor("#2933e6")
-   // .addField(" Le bot a démarré avec succès !", "**Il est prêt pour travailler**")
-   // .addField("Le Nom du Bot", bot.user.username)
-   // .setTimestamp()
-   // .setFooter(bot.user.username, bot.user.displayAvatarURL);
- //bot.channels.get('614955437506428929').send(embed);
-  bot.user.setActivity("Le serveur support", {
-    type: "WATCHING"  //PLAYING,STREAMING,LISTENING,WATCHING
+ let embed = new Discord.RichEmbed()
+   .setDescription("**__Démarage du Bot__**")
+   .setColor("#2933e6")
+   .addField(" Le bot a démarré avec succès !", "**Il est prêt pour travailler**")
+   .addField("Le Nom du Bot", bot.user.username)
+   .setTimestamp()
+   .setFooter(bot.user.username, bot.user.displayAvatarURL);
+ bot.channels.get('614955437506428929').send(embed);
+  bot.user.setActivity("Pleurer", {
+    type: "PLAYING"  //PLAYING,STREAMING,LISTENING,WATCHING
 
   });
   bot.user.setStatus('online') // Can be 'available', 'idle', 'dnd', or 'invisible'
@@ -49,15 +47,21 @@ bot.on("message", async message => {
       .setFooter(bot.user.username, bot.user.displayAvatarURL);
       message.channel.send(pingEmbed);
   }
-  // Create an event listener for new guild members
-  bot.on('guildMemberAdd', member => {
-    // Send the message to a designated channel on a server:
-    const channel = member.guild.channels.find(ch => ch.name === '《🚀》join-leave');
-    // Do nothing if the channel wasn't found on this server
-    if (!channel) return;
-    // Send the message, mentioning the member
-    channel.send(`Bienvenue dans mon serveur support, ${member}`);
-  });
+  ("guildMemberAdd", member => {
+     const welcomeChannel = member.guild.channels.find('name', '《🚀》join-leave');
+                if (!welcomeChannel === null) return;
+   Bot.channels.get(welcomeChannel.id).send("Bienvenue: " + member.guild.name + " merci d'etre venu !!")
+});
+
+("guildMemberRemove", member => {
+   const welcomeChannel = member.guild.channels.find('name', '《🚀》join-leave');
+                if (!welcomeChannel === null) return;
+   bot.channels.get(welcomeChannel.id).send("Au revoir: " + member.user.username + " de " + member.guild.name)
+});
+
+bot.on("guildCreate", guild => {
+    console.log("Some one added the test bot to a server created by: " + guild.owner.user.username)
+});
 
   if (cmd === `${prefix}kick`) {
 
@@ -139,7 +143,7 @@ bot.on("message", async message => {
 
     message.delete().catch(O_o => {});
     if (reportschannel) reportschannel.send(reportEmbed);
-    else message.channel.send("Je touve pas de reports channel.");
+    else message.channel.send("Je touve pas le channel reports.");
     return;
   }
 
@@ -160,6 +164,22 @@ bot.on("message", async message => {
     return message.channel.send(serverembed);
   }
 
+  if (cmd === `${prefix}annonce`) {
+     if (message.member.hasPermission("ADMINISTRATOR")) {
+       const color = args[0]
+       const text = args.slice(1).join(" ");
+       if (text.length < 1) return message.channel.send("Can not announce nothing");
+       //const colour = args.slice(2).join("");
+       const embed = new Discord.RichEmbed()
+       .setColor("0x" + color)
+       .setTitle("Important Announcement:")
+       .setDescription(text);
+       message.channel.send("@everyone")
+       message.channel.send({embed})
+     }
+   } else
+
+
   if (cmd === `${prefix}help`) {
 
     let sicon = message.guild.iconURL;
@@ -175,6 +195,7 @@ bot.on("message", async message => {
       .addField("n!ban [Membre] (Raison)","Ban une personne.")
       .addField("n!help","C'est cette commande.")
       .addField("n!clear","Supprimer des messages.")
+      .addField("n!avis (Votre avis)","Donner votre avis et il sera envoyer dans le serveur support.")
       .addField("**__Voici le serveur support.__**","https://discord.gg/SnsHkmE")
       .setAuthor(message.author.username, message.author.displayAvatarURL)
       .setFooter(bot.user.username, bot.user.displayAvatarURL);
@@ -236,18 +257,13 @@ bot.on("message", async message => {
 
     if (args.length < 1)
       return message.reply("Rien a dire").then(m => m.delete(5600));
-
-
-
-    if (args[0].toLowerCase() === "embed") {
-      const embed = new Discord.RichEmbed()
-        .setColor(roleColor)
-        .setDescription(args.slice(1).join(" "))
-        .setTimestamp()
-        .setFooter(bot.user.username, bot.user.displayAvatarURL);
-        message.reply('Votre message a était envoyer dans le salon avis qui se trouve sur le serveur support.')
-        bot.channels.get('612470928017981460').send(embed);
-    } 
+    const embed = new Discord.RichEmbed()
+      .setDescription(args)
+      .setTimestamp()
+      .setAuthor(message.author.username, message.author.displayAvatarURL)
+      .setFooter(bot.user.username, bot.user.displayAvatarURL);
+    message.reply('Votre message a était envoyer dans le salon avis qui se trouve sur le serveur support.')
+    bot.channels.get('612470928017981460').send(embed);
   }
 
   if (message.content === `${prefix}avatar`) {

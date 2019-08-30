@@ -1,6 +1,6 @@
 {
-  "name": "package.json",
-  "version": "0.0.1",
+  "name": "natbotv2",
+  "version": "0.0.2",
   "description": "un bot formidable",
   "main": "index.js",
   "scripts": {
@@ -11,14 +11,5 @@
   "dependencies": {
     "discord.js": "^11.5.1",
     "nodemon": "^1.19.1"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/natmaitre/NatBotV2.git"
-  },
-  "bugs": {
-    "url": "https://github.com/natmaitre/NatBotV2/issues"
-  },
-  "homepage": "https://github.com/natmaitre/NatBotV2#readme"
+  }
 }

@@ -1,0 +1,63 @@
+{
+  "fortnite": [{
+      "id": "0",
+      "question": "comment s'appelle l'épée sur fortnite ?",
+      "responses": ["la lame de l'infinie\n", "l'epee de l'infinie\n", "l'epee de fortnite\n", "le pistolet de l'infinie\n"],
+      "correct": 1
+    },
+    {
+      "id": "1",
+      "question": "combien y-a-t'il combien de défi hedromadaire ?",
+      "responses": ["5\n", "10\n", "1\n", "20\n"],
+      "correct": 2
+    },
+    {
+      "id": "2",
+      "question": "Quelle skin est le plus rare au monde sur fortnite?",
+      "responses": ["la recon expert\n", "le skin galaxie\n", "le recon expert\n", "Ghoul trooper\n"],
+      "correct": 1
+    },
+    {
+      "id": "3",
+      "question": "Combien a-t-il de saisons ?",
+      "responses": ["19\n", "10\n", "9\n", "5\n"],
+      "correct": 4
+    },
+    {
+      "id": "4",
+      "question": "Ou achetons les skins  ?",
+      "responses": ["dans la boutique\n", "dans événement\n", "dans la boutique d'objet\n", "dans casier\n"],
+      "correct": 3
+    },
+    {
+      "id": "5",
+      "question": "Quelle arme a plus de puissance entre le pompe tactique, le pistolet, le pompe chase, le bourlingeur ?",
+      "responses": ["le pompe tactique\n", "le pistolet\n", "le pompe chase\n", "le bourlingeur\n"],
+      "correct": 3
+    },
+    {
+      "id": "6",
+      "question": "Qui a créé epic game ?",
+      "responses": ["fortnite\n", "moi\n", "Ninja\n", "Tim Sweeney\n"],
+      "correct": 4
+    },
+    {
+      "id": "7",
+      "question": "Quelle est la date exact de la création de fortnite battle royale ?",
+      "responses": ["25 avril 1987\n", "15 mai 1789\n", "25 juillet 2017\n", "25 juillet 2019\n"],
+      "correct": 3
+    },
+    {
+      "id": "8",
+      "question": "Combien a-t-il d'arme avenger sur fortnite ?",
+      "responses": ["1\n", "2\n", "3\n", "4\n"],
+      "correct": 4
+    },
+    {
+      "id": "9",
+      "question": "Combien a-t-il de danse de couleur rouge ?",
+      "responses": ["2\n", "4\n", "1\n", "3\n"],
+      "correct": 1
+    }
+  ]
+}
