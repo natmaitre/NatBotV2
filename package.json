@@ -9,6 +9,7 @@
   "author": "Natmaitre",
   "license": "ISC",
   "dependencies": {
+    "ascii-table": "0.0.9",
     "discord.js": "^11.5.1",
     "nodemon": "^1.19.1"
   }
