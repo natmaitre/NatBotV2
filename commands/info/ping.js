@@ -2,6 +2,7 @@ const {  RichEmbed } = require("discord.js");
 
 module.exports = {
 	name: "ping",
+	aliases: ["ping", "pong"],
 	category: "info",
 	description: "Retour du ping du bot",
 	run: async (client, message, args) => {

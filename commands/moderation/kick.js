@@ -2,6 +2,7 @@ const {  RichEmbed } = require("discord.js");
 
 module.exports = {
   name: "kick",
+  aliases: ["kick", "expulser"],
   category: "moderation",
   description: "kick un membre",
   run: async (client, message, args) => {

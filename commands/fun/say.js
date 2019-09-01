@@ -2,6 +2,7 @@
 
 module.exports = {
   name: "say",
+  aliases: ["say", "dire"],
   category: "fun",
   description: "Retour de la phrase que vous avez dit",
   run: async (client, message, args) => {

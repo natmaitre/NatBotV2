@@ -2,6 +2,7 @@
 
 module.exports = {
 	name: "clear",
+  aliases: ["clear", "nettoyer"],
 	category: "moderation",
 	description: "clear les messages",
 	run: async (client, message, args) => {

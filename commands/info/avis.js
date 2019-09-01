@@ -2,6 +2,7 @@
 
 module.exports = {
   name: "avis",
+  aliases: ["avis", "suggestion"],
   category: "info",
   description: "Donner un avis",
 run: async (client, message, args) => {

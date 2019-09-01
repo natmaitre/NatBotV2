@@ -2,6 +2,7 @@ const {  RichEmbed } = require("discord.js");
 
 module.exports = {
   name: "help",
+  aliases: ["commandes", "aide"],
   category: "info",
   description: "donne tout les commandes",
   run: async (client, message, args) => {

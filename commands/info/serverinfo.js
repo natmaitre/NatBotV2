@@ -2,6 +2,7 @@ const {  RichEmbed } = require("discord.js");
 
 module.exports = {
   name: "serverinfo",
+  aliases: ["serverinfo", "serverinformation"],
   category: "info",
   description: "Retour information du serveur",
   run: async (client, message, args) => {
@@ -20,4 +21,4 @@ module.exports = {
 
     return message.channel.send(serverembed);
   }
-}  
+}

@@ -10,12 +10,12 @@ module.exports = {
       let embed = new Discord.RichEmbed()
         .setDescription("**Dernier Serveur**.")
         .setColor("#329F5B")
-        .addField("**__Nom du serveur__**", guild.name)
-        .addField("**__Fondateur du serveur__**", guild.owner.user.username)
-        .addField("**__id__**", guild.id)
-        .addField("**__Nombre de membres__**", guild.memberCount)
+        .addField("**Nom du serveur**", guild.name)
+        .addField("**Fondateur du serveur**", guild.owner.user.username)
+        .addField("**id**", guild.id)
+        .addField("**Nombre de membres**", guild.memberCount)
         .setTimestamp()
-        .setFooter(bot.user.username, bot.user.displayAvatarURL);
+        .setFooter("👻Ancien serveur", bot.user.displayAvatarURL);
       bot.channels.get('617346658921086987').send(embed);
     });
   }
